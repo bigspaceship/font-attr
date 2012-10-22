@@ -7,8 +7,14 @@ var Main = new(function()
 	// this.init = function init( $gui, $o.dataObject, $fonts, $prefix )
 	this.init = function init( $o )
 	{
+		_setBrowser();
+
 		_gui = $o.gui;
 		_fonts = $o.fonts;
+
+		if( jQuery.browser.mobile )
+			_gui.close();
+
 		var stylesController = _gui.add( $o.dataObject, 'face', _fonts );
 		stylesController.onFinishChange(function(value)
 		{
