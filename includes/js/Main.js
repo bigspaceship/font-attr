@@ -15,6 +15,12 @@ var Main = new(function()
 		if( jQuery.browser.mobile )
 			_gui.close();
 
+		var textController = _gui.add( $o.dataObject, 'text' );
+		textController.onFinishChange(function(value)
+		{
+			$( '.container' ).html( '<p>' + value + '</p>' );
+		});
+
 		var stylesController = _gui.add( $o.dataObject, 'face', _fonts );
 		stylesController.onFinishChange(function(value)
 		{

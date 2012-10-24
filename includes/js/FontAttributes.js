@@ -1,5 +1,6 @@
 var FontAttributes = function()
 {
+	this.text = "";
 	this.fontColor = "#000000";
 	this.bgColor = "#ffffff";
 	this.size = 20;
