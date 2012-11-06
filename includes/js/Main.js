@@ -10,6 +10,7 @@ var Main = new(function()
 
 		_gui = $o.gui;
 		_fonts = $o.fonts;
+		_fonts.push( 'fallback' );
 
 		if( jQuery.browser.mobile )
 			_gui.close();
@@ -59,7 +60,7 @@ var Main = new(function()
 				$( '#container' ).css( 'webkitTransform', "rotate("+value+"deg)" );
 			else if( jQuery.browser.mozilla )
 				$( '#container' ).css( 'MozTransform', "rotate("+value+"deg)" );
-			else
+			// else
 				// to do: implement other browsers that support this property
 
 		});
