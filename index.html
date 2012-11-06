@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Font Test</title>
+	<title>Web Font Testing</title>
 
-	<!-- <link rel="stylesheet" type="text/css" href="includes/css/bootstrap.css"> -->
 	<link rel="stylesheet" type="text/css" href="includes/css/reset.min.css">
 	<link rel="stylesheet" type="text/css" href="includes/css/style.css">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
+	<!-- Typekit -->
 	<script type="text/javascript" src="//use.typekit.net/kbl3hpt.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
+	<!-- Google Fonts -->
+	<!-- <link href='http://fonts.googleapis.com/css?family=Average+Sans' rel='stylesheet' type='text/css'> -->
+
 </head>
 <body>
-	<div class="container tk-futura-pt-book">
+	<div id="container" class="tk-futura-pt-book">
 		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
 
 		<p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
@@ -45,7 +48,7 @@
 			gui.remember( fontAttributes );
 
 			// sk: all of the CSS classes
-			var fonts = ['tk-futura-pt-book', 'tk-futura-pt-book-italic', 'tk-futura-pt-bold', 'tk-futura-pt-bold-italic', 'tk-futura-pt-extra-bold', 'tk-futura-pt-extra-bold-italic', 'fallback'];
+			var fonts = ['tk-futura-pt-book', 'tk-futura-pt-book-italic', 'tk-futura-pt-bold', 'tk-futura-pt-bold-italic', 'tk-futura-pt-extra-bold', 'tk-futura-pt-extra-bold-italic'];
 
 			// sk: used to remove any class from an element starting with this prefix
 			var prefix = 'tk-futura';
