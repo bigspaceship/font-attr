@@ -4,7 +4,6 @@ var Main = new(function()
 	var _gui;
 	var _fonts;
 
-	// this.init = function init( $gui, $o.dataObject, $fonts, $prefix )
 	this.init = function init( $o )
 	{
 		_setBrowser();
@@ -16,99 +15,72 @@ var Main = new(function()
 			_gui.close();
 
 		var textController = _gui.add( $o.dataObject, 'text' );
-		textController.onFinishChange(function(value)
-		{
-			$( '.container' ).html( '<p>' + value + '</p>' );
-		});
+		textController.onFinishChange(function( value ){ $( '#container' ).html( '<p>' + value + '</p>' ); });
 
 		var stylesController = _gui.add( $o.dataObject, 'face', _fonts );
-		stylesController.onFinishChange(function(value)
+		stylesController.onFinishChange(function( value )
 		{
 			// removes all the classes that begin with whatever prefix we pass in
-			var $a = $( '.container' ).attr( 'class' ).split( ' ' );
+			var $a = $( '#container' ).attr( 'class' ).split( ' ' );
 			var classes = $a.map(function(item)
 			{
 			    return item.indexOf( $o.prefix ) === -1 ? item : '';
 			});
-			$( '.container' ).attr( 'class', classes.join( ' ' ) );
+			$( '#container' ).attr( 'class', classes.join( ' ' ) );
 
-			$( '.container' ).addClass( value );
+			$( '#container' ).addClass( value );
 		});
 
 		var bgController = _gui.addColor( $o.dataObject, 'bgColor' );
-		bgController.onChange(function(value)
-		{
-			$( '.container' ).css( 'backgroundColor', value );
-		});
+		bgController.onChange(function( value ){ $( '#container' ).css( 'backgroundColor', value ); });
 
 		var colorController = _gui.addColor( $o.dataObject, 'fontColor' );
-		colorController.onChange(function(value)
-		{
-			$( '.container' ).css( 'color', value );
-		});
+		colorController.onChange(function( value ){ $( '#container' ).css( 'color', value ); });
 
 		var sizeController = _gui.add( $o.dataObject, 'size', 12, 96 ).step( 1 );
-		sizeController.onChange(function(value)
-		{
-			$( '.container' ).css( 'fontSize', value );
-		});
+		sizeController.onChange(function( value ){ $( '#container' ).css( 'fontSize', value ); });
 
 		var lineHeightController = _gui.add( $o.dataObject, 'lineHeight', 5, 100 ).step( 1 );
-		lineHeightController.onChange(function(value)
-		{
-			$( '.container' ).css( 'lineHeight', value + 'px' );
-		});
+		lineHeightController.onChange(function( value ){ $( '#container' ).css( 'lineHeight', value + 'px' ); });
 
 		var spacingController = _gui.add( $o.dataObject, 'spacing', 5, 50 ).step( 1 );
-		spacingController.onChange(function(value)
-		{
-			$( '.container p' ).css( 'paddingBottom', value + 'px' );
-		});
+		spacingController.onChange(function( value ){ $( '#container p' ).css( 'paddingBottom', value + 'px' ); });
 
 		var letterSpacingController = _gui.add( $o.dataObject, 'letterSpacing', -10, 20 ).step( 1 );
-		letterSpacingController.onChange(function(value)
-		{
-			$( '.container' ).css( 'letterSpacing', value + 'px' );
-		});
+		letterSpacingController.onChange(function( value ){ $( '#container' ).css( 'letterSpacing', value + 'px' ); });
 
 		var widthController = _gui.add( $o.dataObject, 'width', 200, 1200 ).step( 1 );
-		widthController.onChange(function(value)
-		{
-			$( '.container' ).css( 'width', value );
-		});
+		widthController.onChange(function( value ){ $( '#container' ).css( 'width', value ); });
 
 		var rotationController = _gui.add( $o.dataObject, 'rotation', -180, 180 ).step( 1 );
-		rotationController.onChange(function(value)
+		rotationController.onChange(function( value )
 		{
 			if( jQuery.browser.chrome || jQuery.browser.safari )
-				$( '.container' ).css( 'webkitTransform', "rotate("+value+"deg)" );
+				$( '#container' ).css( 'webkitTransform', "rotate("+value+"deg)" );
 			else if( jQuery.browser.mozilla )
-				$( '.container' ).css( 'MozTransform', "rotate("+value+"deg)" );
+				$( '#container' ).css( 'MozTransform', "rotate("+value+"deg)" );
+			else
+				// to do: implement other browsers that support this property
+
 		});
 
 		// var weightController = _gui.add( text, 'weight', 100, 1000 ).step( 100 );
-		// weightController.onChange(function(value)
+		// weightController.onChange(function( value )
 		// {
-		// 	$( '.container' ).css( 'fontWeight', value );
+		// 	$( '#container' ).css( 'fontWeight', value );
 		// });
 
 		var alignController = _gui.add( $o.dataObject, 'align', ['left', 'center', 'right'] );
-		alignController.onFinishChange(function(value)
-		{
-			$( '.container' ).css( 'textAlign', value );
-		});
+		alignController.onFinishChange(function( value ){ $( '#container' ).css( 'textAlign', value ); });
 
 		var transformController = _gui.add( $o.dataObject, 'transform', ['inherit', 'uppercase', 'capitalize', 'lowercase'] );
-		transformController.onFinishChange(function(value)
-		{
-			$( '.container' ).css( 'textTransform', value );
-		});
+		transformController.onFinishChange(function( value ){ $( '#container' ).css( 'textTransform', value ); });
 
 		var smoothingController = _gui.add( $o.dataObject, 'smoothing', ['antialiased', 'subpixel-antialiased', 'none'] );
-		smoothingController.onFinishChange(function(value)
+		smoothingController.onFinishChange(function( value )
 		{
 			if( jQuery.browser.chrome || jQuery.browser.safari )
-				$( '.container' ).css( 'webkitFontSmoothing', value );
+				$( '#container' ).css( 'webkitFontSmoothing', value );
 			else
 				alert( 'sorry, charlie, not supported' );
 
@@ -154,12 +126,7 @@ var Main = new(function()
 			winMobileVersion: (userAgent.match( /.+(?:windows\ phone\ os)[\/: ]([\d_]+)/ ) || [0,0])[1]
 		};
 
-		jQuery.browser.mobile   =   ($.browser.iphone || $.browser.ipad || $.browser.android || $.browser.blackberry );
+		jQuery.browser.mobile = ($.browser.iphone || $.browser.ipad || $.browser.android || $.browser.blackberry );
 	};
 
-	// construct
-	$(function()
-	{
-
-	});
 })();
