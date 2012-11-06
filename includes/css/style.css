@@ -1,6 +1,6 @@
 /*.tk-futura-pt*/
 
-.container
+#container
 {
 	width: 400px;
 	margin-right: auto;
@@ -16,8 +16,12 @@
 	/*font-weight: 400;*/
 	-webkit-font-smoothing: antialiased;
 
-	-webkit-transform:rotate( 0deg );
-	-moz-transform:rotate( 0deg );
+	        transform:rotate( 0deg );
+	     -o-transform:rotate( 0deg ); /* Opera */
+	    -ms-transform:rotate( 0deg ); /* IE 9 */
+	   -moz-transform:rotate( 0deg ); /* Firefox */
+	-webkit-transform:rotate( 0deg ); /* Safari and Chrome */
+
 }
 
 .fallback
@@ -25,7 +29,7 @@
 	font-family: sans-serif;
 }
 
-.container p
+#container p
 {
 	padding-bottom: 20px;
 }
