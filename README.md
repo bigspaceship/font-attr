@@ -1,4 +1,4 @@
-# Web Font Testing
+# Web Font Viewer
 
 A simple tool to allow developers, designers, and even producers to visualize the chosen fonts for a project. A little set up by a developer will allow designers to tweak and pass back info to a developer for font implementation. The example is using TypeKit.
 
@@ -40,6 +40,10 @@ You can click the cog to open a modal window that will present you with a JSON o
 The index file has lorem ipsum but feel free to change this as you see fit. The user can change the text as needed on the fly but if you'd like to start with a particular text, by all means, change it.
 
 ## Versions
+
+### 1.1
+* Changed Name
+* Added screenshot for WP
 
 ### 1.1
 * Cleaned JS
